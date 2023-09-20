@@ -44,7 +44,6 @@ class DebitCreditCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return SizedBox(
         width: (width ?? MediaQuery.of(context).size.width),
         height: ((width ?? MediaQuery.of(context).size.width)) * 0.56574,
@@ -79,16 +78,15 @@ class DebitCreditCardWidget extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
-                              getCardTypeString(
-                                  cardType, customCardType),
-                              style: TextStyle(
-                                  fontSize: 16, color: textColor)),
+                          Text(getCardTypeString(cardType, customCardType),
+                              style: TextStyle(fontSize: 16, color: textColor)),
                           customCompanyImage == null
                               ? Container()
                               : Image(
                                   image: customCompanyImage!,
-                                  height: (width ?? MediaQuery.of(context).size.width) / 13,
+                                  height: (width ??
+                                          MediaQuery.of(context).size.width) /
+                                      13,
                                 ),
                         ],
                       ),
@@ -99,7 +97,9 @@ class DebitCreditCardWidget extends StatelessWidget {
                             image: const AssetImage(
                                 'assets/images/chip_logo.png',
                                 package: "debit_credit_card_widget"),
-                            height: (width ?? MediaQuery.of(context).size.width) / 11,
+                            height:
+                                (width ?? MediaQuery.of(context).size.width) /
+                                    11,
                           ),
                           Visibility(
                             visible: showNFC,
@@ -109,7 +109,9 @@ class DebitCreditCardWidget extends StatelessWidget {
                                   'assets/images/contactless_logo.png',
                                   package: "debit_credit_card_widget",
                                 ),
-                                height: (width ?? MediaQuery.of(context).size.width) / 15),
+                                height: (width ??
+                                        MediaQuery.of(context).size.width) /
+                                    15),
                           ),
                         ],
                       ),
@@ -147,9 +149,7 @@ class DebitCreditCardWidget extends StatelessWidget {
                                         ),
                                         Text(
                                             StringUtils.addCharAtPosition(
-                                                validFrom.toString(),
-                                                "/",
-                                                2),
+                                                validFrom.toString(), "/", 2),
                                             style: TextStyle(
                                                 fontSize: 22,
                                                 letterSpacing: 2,
@@ -177,9 +177,7 @@ class DebitCreditCardWidget extends StatelessWidget {
                                       ),
                                       Text(
                                           StringUtils.addCharAtPosition(
-                                              cardExpiry.toString(),
-                                              "/",
-                                              2),
+                                              cardExpiry.toString(), "/", 2),
                                           style: TextStyle(
                                               fontSize: 22,
                                               letterSpacing: 2,
@@ -206,8 +204,8 @@ class DebitCreditCardWidget extends StatelessWidget {
                             ],
                           ),
                           Image(
-                              image: getCardBrandImage(
-                                  cardBrand, cardBrandImage),
+                              image:
+                                  getCardBrandImage(cardBrand, cardBrandImage),
                               width: 65)
                         ],
                       ),
