@@ -1,39 +1,67 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# Debit Credit Card Widget
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
+A Flutter widget for displaying debit and credit card designs.
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
+![Example Image](https://github.com/vaibhav13062/debit_credit_card_widget/raw/master/image.png)
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
 
-## Features
+## Installation
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+To use this package, add `debit_credit_card_widget` as a dependency in your `pubspec.yaml` file:
+```yaml
+dependencies:
+  debit_credit_card_widget: ^1.0.0
+```
 
 ## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+Import the package into your Flutter code:
 
 ```dart
-const like = 'sample';
+import 'package:debit_credit_card_widget/debit_credit_card_widget.dart';
 ```
+
+## Usage
+To create a DebitCreditCardWidget, simply instantiate it with the desired properties:
+
+```dart
+DebitCreditCardWidget(
+cardHolderName: "John Doe",
+cardNumber: "0000 0000 0000 0000",
+cardExpiry: "12/24",
+// ... other properties
+),
+```
+
+## Properties
+
+| Param                       | Description                                                                |
+|-----------------------------|----------------------------------------------------------------------------|
+| `width`                     | Give specific width to the card (take as much space available by default). |
+| `cardHolderName`            | Allow you to set the cardholder's name("John Doe" - Default).              |
+| `cardNumber`                | Allow you to set the card Number("4 X 0000" - Default)(Max 16).            |
+| `cardExpiry`                | Allow you to set the card Expiry("0000" - Default)(Max 4).                 |
+| `validFrom`                 | Allow you to set the card Valid From(Max 4).                               |
+| `cardDecoration`            | Allows you to customize whole card decoration.                             |
+| `textColor`                 | Allows you to change Text Color(White - Default).                          |
+| `color1`                    | Allows you to change Gradient First Color(Pink Accent - Default).          |
+| `color2`                    | Allows you to change Gradient Second Color(Black - Default).               |
+| `showNFC`                   | Allows you to show Hide NFC Logo.                                          |
+| `cardBrand`                 | `CardBrand` Enum can be Used to Specify card brand (eg.`CardBrand.visa`).  |
+| `cardBrandImage`            | If cardBrand is set to `CardBrand.custom` cardBrandImage will be used.     |
+| `cardType`                  | `CardType` Enum can be Used to Specify card brand (eg.`CardType.credit`).  |
+| `customCardType`            | If cardType is set to `CardType.custom` customCardType will be used.       |
+| `customCompanyImage`        | Allows you to add custom image to top right of the card.                   |
+| `backgroundDecorationImage` | Allows you to add background image int he card.                            |
+
+## License
+
+This package is open-source and released under the MIT License.
+
+## Issues and Contributions
+Please report any issues or contribute to this project on GitHub.
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+- Made by :- Vaibhav Chandolia
+- Email:- chandolia.vaibhav@gmail.com
+- Website:- vaibhavchandolia.info

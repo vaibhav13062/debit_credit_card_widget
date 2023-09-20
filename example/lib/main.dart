@@ -38,15 +38,18 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: const Center(
         child: DebitCreditCardWidget(
-          cardType: CardType.debit,
-          cardBrand: CardBrand.mastercard,
-          cardExpiry: "2140",
-          color1: Colors.purple,
-          showNFC: false,
-          cardNumber: "1234123412341234",
-          cardHolderName: "Vaibhav Chandolia",
+          cardType: CardType
+              .debit, // CAN SET CARD TYPE AS DEBIT,CREDIT OR CUSTOM(FOR CUSTOM USE :- customCardType )
+          cardBrand: CardBrand
+              .mastercard, // CAN SET CARD BRAND (VISA,MASTERCARD,AMERICAN EXPRESS , DISCOVER, RUPAY OR CUSTOM(FOR CUSTOM USE :- cardBrandImage))
+          cardExpiry: "2140", // CARD EXPIRY DATE
+          color1: Colors.purple, // GRADIENT FIRST COLOR
+          showNFC: false, // BOOL TO SHOW OR HIDE NFC LOGO
+          cardNumber: "1234123412341234", // CARD NUMBER ONLY 16 CHARACTERS
+          cardHolderName: "Vaibhav Chandolia", // CARD HOLDER NAME
           backgroundDecorationImage: DecorationImage(
-              image: AssetImage("assets/images/background.png")),
+              image: AssetImage(
+                  "assets/images/background.png")), // YOU CAN ADD BACKGROUND IMAGE FROM HERE
         ),
       ),
     );
