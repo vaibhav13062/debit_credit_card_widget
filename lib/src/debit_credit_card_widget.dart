@@ -2,7 +2,7 @@ import 'package:basic_utils/basic_utils.dart';
 import 'package:debit_credit_card_widget/src/Enums.dart';
 import 'package:flutter/material.dart';
 
-class DebitCreditCardWidget extends StatefulWidget {
+class DebitCreditCardWidget extends StatelessWidget {
   final double? width;
   final String cardHolderName;
   final String cardNumber;
@@ -43,16 +43,11 @@ class DebitCreditCardWidget extends StatefulWidget {
   });
 
   @override
-  State<DebitCreditCardWidget> createState() => _DebitCreditCardWidgetState();
-}
-
-class _DebitCreditCardWidgetState extends State<DebitCreditCardWidget> {
-  @override
   Widget build(BuildContext context) {
-    double width = widget.width ?? MediaQuery.of(context).size.width;
+
     return SizedBox(
-        width: (widget.width ?? MediaQuery.of(context).size.width),
-        height: ((widget.width ?? MediaQuery.of(context).size.width)) * 0.56574,
+        width: (width ?? MediaQuery.of(context).size.width),
+        height: ((width ?? MediaQuery.of(context).size.width)) * 0.56574,
         child: Card(
             margin: const EdgeInsets.all(0),
             clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -60,14 +55,14 @@ class _DebitCreditCardWidgetState extends State<DebitCreditCardWidget> {
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
             child: Container(
-                decoration: widget.cardDecoration ??
+                decoration: cardDecoration ??
                     BoxDecoration(
-                      image: widget.backgroundDecorationImage,
+                      image: backgroundDecorationImage,
                       gradient: LinearGradient(
                         begin: Alignment.topLeft,
                         end: const Alignment(0.6,
                             1.7), // 10% of the width, so there are ten blinds.
-                        colors: [widget.color1, widget.color2], // red to yellow
+                        colors: [color1, color2], // red to yellow
                         tileMode: TileMode
                             .repeated, // repeats the gradient over the canvas
                       ),
@@ -86,14 +81,14 @@ class _DebitCreditCardWidgetState extends State<DebitCreditCardWidget> {
                         children: [
                           Text(
                               getCardTypeString(
-                                  widget.cardType, widget.customCardType),
+                                  cardType, customCardType),
                               style: TextStyle(
-                                  fontSize: 16, color: widget.textColor)),
-                          widget.customCompanyImage == null
+                                  fontSize: 16, color: textColor)),
+                          customCompanyImage == null
                               ? Container()
                               : Image(
-                                  image: widget.customCompanyImage!,
-                                  height: width / 13,
+                                  image: customCompanyImage!,
+                                  height: (width ?? MediaQuery.of(context).size.width) / 13,
                                 ),
                         ],
                       ),
@@ -104,30 +99,30 @@ class _DebitCreditCardWidgetState extends State<DebitCreditCardWidget> {
                             image: const AssetImage(
                                 'assets/images/chip_logo.png',
                                 package: "debit_credit_card_widget"),
-                            height: width / 11,
+                            height: (width ?? MediaQuery.of(context).size.width) / 11,
                           ),
                           Visibility(
-                            visible: widget.showNFC,
+                            visible: showNFC,
                             child: Image(
-                                color: widget.textColor,
+                                color: textColor,
                                 image: const AssetImage(
                                   'assets/images/contactless_logo.png',
                                   package: "debit_credit_card_widget",
                                 ),
-                                height: width / 15),
+                                height: (width ?? MediaQuery.of(context).size.width) / 15),
                           ),
                         ],
                       ),
                       Text(
                         StringUtils.addCharAtPosition(
-                            widget.cardNumber.toString(), " ", 4,
+                            cardNumber.toString(), " ", 4,
                             repeat: true),
                         style: TextStyle(
                             fontSize: 25,
                             letterSpacing: 3,
                             fontFamily: "Kredit",
                             package: "debit_credit_card_widget",
-                            color: widget.textColor),
+                            color: textColor),
                       ),
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.end,
@@ -139,20 +134,20 @@ class _DebitCreditCardWidgetState extends State<DebitCreditCardWidget> {
                               Row(
                                 children: [
                                   Visibility(
-                                    visible: widget.validFrom != null,
+                                    visible: validFrom != null,
                                     child: Row(
                                       children: <Widget>[
                                         Text("VALID\nFROM",
                                             style: TextStyle(
                                                 fontSize: 9,
                                                 fontWeight: FontWeight.w800,
-                                                color: widget.textColor)),
+                                                color: textColor)),
                                         const SizedBox(
                                           width: 10,
                                         ),
                                         Text(
                                             StringUtils.addCharAtPosition(
-                                                widget.validFrom.toString(),
+                                                validFrom.toString(),
                                                 "/",
                                                 2),
                                             style: TextStyle(
@@ -161,12 +156,12 @@ class _DebitCreditCardWidgetState extends State<DebitCreditCardWidget> {
                                                 fontFamily: "Kredit",
                                                 package:
                                                     "debit_credit_card_widget",
-                                                color: widget.textColor))
+                                                color: textColor))
                                       ],
                                     ),
                                   ),
                                   Visibility(
-                                      visible: widget.validFrom != null,
+                                      visible: validFrom != null,
                                       child: const SizedBox(
                                         width: 50,
                                       )),
@@ -176,13 +171,13 @@ class _DebitCreditCardWidgetState extends State<DebitCreditCardWidget> {
                                           style: TextStyle(
                                               fontSize: 9,
                                               fontWeight: FontWeight.w800,
-                                              color: widget.textColor)),
+                                              color: textColor)),
                                       const SizedBox(
                                         width: 10,
                                       ),
                                       Text(
                                           StringUtils.addCharAtPosition(
-                                              widget.cardExpiry.toString(),
+                                              cardExpiry.toString(),
                                               "/",
                                               2),
                                           style: TextStyle(
@@ -191,7 +186,7 @@ class _DebitCreditCardWidgetState extends State<DebitCreditCardWidget> {
                                               fontFamily: "Kredit",
                                               package:
                                                   "debit_credit_card_widget",
-                                              color: widget.textColor))
+                                              color: textColor))
                                     ],
                                   ),
                                 ],
@@ -200,19 +195,19 @@ class _DebitCreditCardWidgetState extends State<DebitCreditCardWidget> {
                                 height: 5,
                               ),
                               Text(
-                                widget.cardHolderName,
+                                cardHolderName,
                                 style: TextStyle(
                                     fontSize: 20,
                                     fontFamily: "Kredit",
                                     package: "debit_credit_card_widget",
-                                    color: widget.textColor),
+                                    color: textColor),
                                 overflow: TextOverflow.ellipsis,
                               )
                             ],
                           ),
                           Image(
                               image: getCardBrandImage(
-                                  widget.cardBrand, widget.cardBrandImage),
+                                  cardBrand, cardBrandImage),
                               width: 65)
                         ],
                       ),

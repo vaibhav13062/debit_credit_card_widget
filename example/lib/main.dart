@@ -12,11 +12,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'DEBIT CREDIT CONTAINER EXAMPLE',
+      title: 'DEBIT/CREDIT CARD EXAMPLE',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'DEBIT CREDIT CONTAINER EXAMPLE'),
+      home: const MyHomePage(title: 'DEBIT/CREDIT CARD EXAMPLE'),
     );
   }
 }
@@ -36,10 +36,17 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
+      body: const Center(
         child: DebitCreditCardWidget(
-          cardBrand: CardBrand.americanExpress,
-
+          cardType: CardType.debit,
+          cardBrand: CardBrand.mastercard,
+          cardExpiry: "2140",
+          color1: Colors.purple,
+          showNFC: false,
+          cardNumber: "1234123412341234",
+          cardHolderName: "Vaibhav Chandolia",
+          backgroundDecorationImage: DecorationImage(
+              image: AssetImage("assets/images/background.png")),
         ),
       ),
     );

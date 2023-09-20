@@ -2,6 +2,7 @@ name: debit_credit_card_widget
 description: A new Flutter project.
 version: 1.0.0
 homepage: https://vaibhavchandolia.info
+repository: https://github.com/vaibhav13062/debit_credit_card_widget
 
 environment:
   sdk: '>=3.1.0 <4.0.0'
