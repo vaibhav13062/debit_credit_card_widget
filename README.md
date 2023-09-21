@@ -10,7 +10,7 @@ A Flutter widget for displaying debit and credit card designs.
 To use this package, add `debit_credit_card_widget` as a dependency in your `pubspec.yaml` file:
 ```yaml
 dependencies:
-  debit_credit_card_widget: ^1.0.0
+  debit_credit_card_widget: ^1.0.2
 ```
 
 ## Getting started
@@ -26,8 +26,8 @@ To create a DebitCreditCardWidget, simply instantiate it with the desired proper
 ```dart
 DebitCreditCardWidget(
 cardHolderName: "John Doe",
-cardNumber: "0000 0000 0000 0000",
-cardExpiry: "12/24",
+cardNumber: "0000000000000000",
+cardExpiry: "1224",
 // ... other properties
 ),
 ```
